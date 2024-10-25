@@ -1370,47 +1370,39 @@ Highlight how these tools can save time and improve the overall quality of video
 
 
     <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
-      <form id="contact-form" action="https://formspree.io/f/mjkvkzlb" method="POST">
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="Name"
-            />
+            <h2 class="contact-title">Get In Touch</h2>
+              <form action="https://formspree.io/f/your_form_id" method="POST" id="contactForm">
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="name" name="name" placeholder=" " required>
+                      <label for="name" class="form-label">Name</label>
+                      <div class="error-message" id="nameError">Please enter your name</div>
+                  </div>
+  
+                  <div class="form-group">
+                      <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
+                      <label for="email" class="form-label">Email Address</label>
+                      <div class="error-message" id="emailError">Please enter a valid email address</div>
+                  </div>
+  
+                  <div class="form-group">
+                      <input type="tel" class="form-control" id="phone" name="phone" placeholder=" " required>
+                      <label for="phone" class="form-label">Contact Number</label>
+                      <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                  </div>
+  
+                  <div class="form-group">
+                      <textarea class="form-control" id="message" name="message" placeholder=" " required></textarea>
+                      <label for="message" class="form-label">Your Message</label>
+                      <div class="error-message" id="messageError">Please enter your message</div>
+                  </div>
+  
+                  <button type="submit" class="submit-btn">Send Message</button>
+                  <div class="success-message" id="successMessage">
+                      Thank you! Your message has been sent successfully.
+                  </div>
+              </form>
           </div>
-          <div class="mb-3">
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="E-mail"
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="Mobile No."
-            />
-          </div>
-          <div class="mb-3">
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              placeholder="Message"
-              rows="5"
-            ></textarea>
-          </div>
-        <div class="mb-3">
-          <div id="loading" class="loading" style="display:none;">Loading</div>
-          <div id="error-message" class="error-message" style="display:none;"></div>
-          <div id="sent-message" class="sent-message" style="display:none;">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center">
-          <button type="submit">Send Message</button>
-        </div>
+      </section>
       </form>
             
     </div>
