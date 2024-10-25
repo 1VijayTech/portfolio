@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Video Editing | 3D Article</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            perspective: 1000px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transform-style: preserve-3d;
+            animation: headerSlide 1s ease-out;
+        }
+
+        @keyframes headerSlide {
+            from {
+                transform: translateY(-100%) translateZ(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 20px;
+            transform-style: preserve-3d;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 4rem;
+            transform-style: preserve-3d;
+            animation: heroReveal 1.5s ease-out;
+        }
+
+        @keyframes heroReveal {
+            from {
+                transform: translateZ(-200px);
+                opacity: 0;
+            }
+            to {
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-content:hover {
+            transform: translateZ(50px);
+        }
+
+        /* Article Card */
+        .article-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            animation: cardFloat 1s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateZ(30px) scale(1.02);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes cardFloat {
+            from {
+                transform: translateY(100px) translateZ(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transform: translateZ(50px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin: 2rem 0 1.5rem;
+            position: relative;
+            transform: translateZ(20px);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #4a90e2, #16213e);
+            transform: translateZ(30px);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #444;
+            transform: translateZ(10px);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #4a90e2, #16213e);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateZ(40px) scale(1.05);
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #fff;
+            transform: scale(1.5);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a90e2;
+            border-radius: 5px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                min-height: 40vh;
+            }
+
+            .nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <!-- Add navigation items here -->
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>The Future of Video Editing</h1>
+                <p style="color: #fff; font-size: 1.2rem;">Embracing AI and Automation</p>
+            </div>
+        </section>
+
+        <div class="article-card">
+            <p>Video editing has long been a labor-intensive process, requiring not only technical skills but also a deep understanding of storytelling and visual aesthetics...</p>
+            
+            <div class="highlight-box">
+                <h3>Key Highlights</h3>
+                <ul>
+                    <li>AI-Powered Editing Tools</li>
+                    <li>Smart Scene Detection</li>
+                    <li>Voice and Audio Processing</li>
+                    <li>Automated Workflows</li>
+                </ul>
+            </div>
+
+            <h2>The Current Landscape</h2>
+            <p>Traditionally, video editing has been a meticulous and time-consuming process...</p>
+
+            <h2>AI-Powered Editing Tools</h2>
+            <p>AI-driven editing tools are becoming increasingly popular...</p>
+
+            <!-- Continue with the rest of your content -->
+        </div>
+    </div>
+
+    <div class="nav-dots">
+        <div class="nav-dot active"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+    </div>
+
+    <!-- Floating Background Elements -->
+    <div class="floating-element" style="top: 20%; left: 10%;">
+        <i class="fas fa-play" style="font-size: 4rem;"></i>
+    </div>
+    <div class="floating-element" style="top: 60%; right: 15%;">
+        <i class="fas fa-film" style="font-size: 5rem;"></i>
+    </div>
+
+    <script>
+        // Parallax Effect
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.article-card, .hero-content, .highlight-box');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = (
+                    rect.top >= 0 &&
+                    rect.bottom <= window.innerHeight
+                );
+
+                if (isInView) {
+                    card.style.transform = `
+                        translateZ(30px)
+                        rotateX(${(y - 0.5) * 10}deg)
+                        rotateY(${(x - 0.5) * 10}deg)
+                    `;
+                }
+            });
+        });
+
+        // Scroll Animation
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.article-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.8;
+                
+                if (isInView) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) translateZ(0)';
+                }
+            });
+
+            // Update nav dots
+            const sections = document.querySelectorAll('section');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for nav dots
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const sections = document.querySelectorAll('section');
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
